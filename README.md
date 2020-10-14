@@ -1,6 +1,6 @@
 # PATATAP CLONE
-A mini game replicate [patatap.com](https://patatap.com/) developed using paper.js and howler.js
-
+A mini game replicate [patatap.com](https://patatap.com/) developed using paper.js and howler.js. <br>
+Try it [patatapclone](https://devvma.github.io/WDcourse-patatapclone/.)
 
 # How to play
 Press a, s, d, f keys on your keyboard
