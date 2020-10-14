@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="circle.css" />
+    <script src="paper-full.js" type=""></script>
+    <script src="howler.js"></script>
+    <script type="text/paperscript" canvas="myCanvas">
+      var keyData = {
+        a:{
+          color:"red",
+          sound:new Howl({
+            src: ['A/bubbles.mp3'],
+            autoplay: false
+          })
+        },
+        s:{
+          color:"purple",
+          sound:new Howl({
+            src: ['A/clay.mp3'],
+            autoplay: false
+          })
+        },
+        d:{
+          color:"yellow",
+          sound:new Howl({
+            src: ['A/confetti.mp3'],
+            autoplay: false
+          })
+        },
+        f:{
+          color:"orange",
+          sound:new Howl({
+            src: ['A/corona.mp3'],
+            autoplay: false
+          })
+        }
+      }
+
+      var circles =[];
+
+      function onKeyDown(event) {
+        if(keyData[event.key]){
+          keyData[event.key].sound.play();
+          var maxPoint = new Point(view.size.width, view.size.height);
+          var randomPoint = Point.random();
+          var point = maxPoint * randomPoint;
+          circles.push(new Path.Circle({
+              center: point,
+              radius: 500,
+              fillColor: keyData[event.key].color
+              }));
+        }
+      }
+
+      function color() {
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+
+        return "rgb(" + r + ", " + g + ", " + b + ")";
+      }
+
+      function onFrame(event){
+          circles.forEach(function(circle){
+            circle.fillColor.hue+=1;
+            circle.scale(.9);
+          });
+      }
+    </script>
+    <title>Circle</title>
+  </head>
+  <body>
+    <canvas id="myCanvas" resize> </canvas>
+  </body>
+</html>
