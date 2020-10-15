@@ -8,3 +8,6 @@ Press a, s, d, f keys on your keyboard
 # What I learned
 - [x] Draw 2D object at random place using paper.js
 - [x] Chaining keypress event to do animation and play audio
+
+# Credits
+Audio source [Jono Brandel](https://github.com/jonobr1/Neuronal-Synchrony/tree/master/assets)
